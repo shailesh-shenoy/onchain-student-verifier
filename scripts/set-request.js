@@ -16,7 +16,7 @@ async function main() {
   const schemaBigInt = "211858871543568608478507767336162912855"
 
   // merklized path to field in the W3C credential according to JSONLD  schema e.g. birthday in the KYCAgeCredential under the url "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld"
-  const schemaClaimPathKey = "18985039166381489137731520158771856739325696334209861854133956600929269555815"
+  const schemaClaimPathKey = "19705724722490875760346503834369389309308496903033124770125286524530240217122"
 
   const requestId = 1;
 
@@ -28,7 +28,7 @@ async function main() {
   };
 
   // add the address of the contract just deployed
-  const StudentVerifierAddress = "0xcaEEF8306684eFFf57D362D50594d1f757202201"
+  const StudentVerifierAddress = "0x7e770b6306A109b790427f1cD0B34c580606d669"
 
   let studentVerifier = await hre.ethers.getContractAt("StudentVerifier", StudentVerifierAddress)
 

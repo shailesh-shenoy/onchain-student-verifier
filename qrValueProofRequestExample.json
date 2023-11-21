@@ -6,7 +6,7 @@
     "body": {
         "reason": "On-chain Student Verification",
         "transaction_data": {
-            "contract_address": "0xcaEEF8306684eFFf57D362D50594d1f757202201",
+            "contract_address": "0x7e770b6306A109b790427f1cD0B34c580606d669",
             "method_id": "b68967e2",
             "chain_id": 80001,
             "network": "polygon-mumbai"
@@ -21,8 +21,8 @@
                     ],
                     "context": "https://raw.githubusercontent.com/shailesh-shenoy/polygonid-issuer-node/main/schemas/verified-student-credential.jsonld",
                     "credentialSubject": {
-                        "isVerifiedStudent": {
-                            "$eq": 1
+                        "studentAddress": {
+                            "$eq": 460588145548722
                         }
                     },
                     "type": "VerifiedStudentCredential"

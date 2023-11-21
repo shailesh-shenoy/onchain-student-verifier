@@ -15,9 +15,9 @@ contract StudentVerifier is ERC721, ZKPVerifier {
     mapping(address => uint256) public addressToId;
 
     constructor(
-        string memory name_,
-        string memory symbol_
-    ) ERC721(name_, symbol_) {}
+        string memory _name,
+        string memory _symbol_
+    ) ERC721(_name, _symbol_) {}
 
     /**
      * @dev Override the base URI function to return the metadata URI.
@@ -33,7 +33,7 @@ contract StudentVerifier is ERC721, ZKPVerifier {
         uint64 /* requestId */,
         uint256[] memory inputs,
         ICircuitValidator validator
-    ) internal view override {
+    ) internal override {
         // check that challenge input is address of sender
         address addr = GenesisUtils.int256ToAddress(
             inputs[validator.getChallengeInputIndex()]
@@ -43,6 +43,11 @@ contract StudentVerifier is ERC721, ZKPVerifier {
             _msgSender() == addr,
             "address in proof is not a sender address"
         );
+        // Set the value to check in proof to sender's address
+        // Get the last 15 digits of sender's address after converting to uint256
+        uint256 dynamicValue = uint256(uint160(_msgSender())) % 10 ** 15;
+
+        _setDynamicValue(TRANSFER_REQUEST_ID, dynamicValue);
     }
 
     function _afterProofSubmit(
@@ -75,5 +80,14 @@ contract StudentVerifier is ERC721, ZKPVerifier {
             from == address(0),
             "This token is bound to the verified address and can not be transferred"
         );
+    }
+
+    /**
+     * @dev Override the token URI function to return the metadata URI.
+     */
+    function tokenURI(
+        uint256 tokenId
+    ) public view override returns (string memory) {
+        return super.tokenURI(tokenId);
     }
 }
