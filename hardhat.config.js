@@ -1,6 +1,7 @@
 require('@nomiclabs/hardhat-waffle');
 require('dotenv').config();
 require('@openzeppelin/hardhat-upgrades');
+require("@nomiclabs/hardhat-solhint");
 
 module.exports = {
   solidity: "0.8.16",

@@ -22,7 +22,7 @@
                     "context": "https://raw.githubusercontent.com/shailesh-shenoy/polygonid-issuer-node/main/schemas/verified-student-credential.jsonld",
                     "credentialSubject": {
                         "studentAddress": {
-                            "$eq": 460588145548722
+                            "$eq": 902419271455429
                         }
                     },
                     "type": "VerifiedStudentCredential"
